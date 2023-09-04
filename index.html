@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="matchpoint.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>MatchPoint - Tu Éxito en Eventos</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Encabezado */
+header {
+    background-color: black;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Barra de navegación */
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 40px;
+    background: url(luxury3.png) no-repeat center bottom;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+nav ul li.logo {
+    display: flex;
+    align-items: center;
+}
+
+nav ul li.logo img {
+    max-width: 50px;
+    margin-right: 10px;
+}
+
+/* Sección hero */
+.hero {
+    position: relative;
+    text-align: center;
+    color: #fff;
+}
+
+.hero video {
+    width: 100%;
+    height: auto;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #f39c12;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 499px) {
+    header nav ul li:not(.logo) {
+        display: none;
+    }
+    .hero-content {
+        display: none;
+    }
+}
+
+/* Otras secciones y estilos continúan aquí... */
+
+/* Estilos para el icono del carrito de compras */
+.cart-icon-container {
+    position: fixed;
+    bottom: 10px;
+    right: 0;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid grey;
+    background: white;
+}
+
+.cart-icon {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('ICL.png') center center no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+/* Estilos para las opciones de producto */
+.product-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 20px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.option:hover {
+    color: #f39c12;
+}
+
+.option i {
+    margin-right: 5px;
+}
+
+/* Estilos para la sección "Top Más Vendido" */
+.top-vendido {
+    text-align: center;
+    padding: 50px 0;
+    background-image: url(section2.png);
+    background-size: contain;
+}
+
+.top-vendido h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.top-vendido img {
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+#precio {
+    font-size: 18px;
+    color: #f39c12;
+}
+
+#precioTachado {
+    font-size: 16px;
+    color: #888;
+    text-decoration: line-through;
+}
+
+/* Estilos para la sección de reseñas */
+.reviews-section {
+    background-color: #f9f9f9;
+    padding: 20px 0;
+    overflow: hidden;
+}
+
+.reviews-container {
+    display: flex;
+    animation: scrollReviews 30s linear infinite;
+}
+
+.review {
+    min-width: 250px;
+    padding: 20px;
+    margin: 0 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    transition: transform 0.5s ease;
+}
+
+.review:hover {
+    transform: scale(1.05);
+}
+
+.review h3 {
+    font-size: 18px;
+    margin: 0;
+    color: #333;
+}
+
+.review p {
+    font-size: 14px;
+    color: #777;
+    margin: 5px 0;
+}
+
+.review-name {
+    font-weight: bold;
+}
+
+@keyframes scrollReviews {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+           <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Eventos</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li class="logo"><img src="matchpoint.png"></li>
+                <li><a href="#">Sobre Nosotros</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <video autoplay loop muted playsinline>
+            <source src="event-video.mp4" type="video/mp4">
+            Tu navegador no admite la reproducción de video.
+        </video>
+        <div class="hero-content">
+            <h1>Bienvenido a MatchPoint</h1>
+            <p>Tu destino para el éxito en eventos y celebraciones.</p>
+            <a href="#" class="cta-button">Explora Nuestros Eventos</a>
+        </div>
+    </section>
+    <section class="know-what-you-want">
+    <h1>Sabemos lo que necesitas para tus eventos</h1>
+    <p>Sabemos que quieres que tus eventos sean inolvidables, y estamos aquí para hacerlo realidad.</p>
+    <p>Nuestros servicios de planificación y organización de eventos te ayudarán a alcanzar el éxito en cada celebración.</p>
+</section>
+<section class="top-vendido">
+    <h1>Evento Destacado: MatchPoint Gala 2023</h1>
+    <img src="gala-image.png" alt="Evento Gala 2023">
+    <p>Precio de Entrada: <span id="precio">99,99€</span></p>
+    <p>Precio Anterior: <span id="precioTachado"><del>129,99€</del></span></p>
+</section>
+<section class="products">
+        <h2>Nuestra Colección de Servicios</h2>
+    <div class="product">
+        <img src="service1.png">
+        <h3>Planificación de Bodas</h3>
+        <p>Haz que tu boda sea un día inolvidable con nuestra experiencia en planificación de bodas.</p>
+        <p class="precio">Desde 999€</p>
+        <div class="product-options">
+            <div class="option">
+                <i class="fas fa-heart"></i> Me Gusta
+            </div>
+            <div class="option">
+                <i class="fas fa-shopping-cart"></i> Contratar
+            </div>
+            <div class="option">
+                <i class="fas fa-share"></i> Compartir
+            </div>
+        </div>
+    </div>
+    <div class="product">
+        <img src="service2.png">
+        <h3>Planificación de Eventos Corporativos</h3>
+        <p>Impulsa tu negocio con eventos corporativos de alto nivel.</p>
+        <p class="precio">Desde 1499€</p>
+        <div class="product-options">
+            <div class="option">
+                <i class="fas fa-heart"></i> Me Gusta
+            </div>
+            <div class="option">
+                <i class="fas fa-shopping-cart"></i> Contratar
+            </div>
+            <div class="option">
+                <i class="fas fa-share"></i> Compartir
+            </div>
+        </div>
+    </div>
+</section>
+<section class="about-section">
+    <div class="about-container">
+        <div class="about-image">
+            <img src="aboutus.png" alt="Sobre Nosotros" style="width: 100%">
+        </div>
+        <div class="about-description">
+            <p>MatchPoint es una empresa de planificación de eventos comprometida en hacer que cada ocasión sea especial y memorable.</p>
+        </div>
+    </div>
+</section>
+<section class="reviews-section">
+    <div class="reviews-container">
+        <!-- Reseñas de eventos y clientes aquí -->
+    </div>
+</section>
+<section class="contact-section">
+    <div class="contact-form">
+        <h2>Contacto</h2>
+        <form action="#" method="POST">
+            <!-- Formulario de contacto aquí -->
+        </form>
+    </div>
+</section>
+<div class="floating-div">
+    <div class="inner-div" id="luxury">
+        <img src="luxury11.png" style="width:50px">
+        <h1>Planificación de Bodas</h1>
+    </div>
+    <div class="inner-div" id="urban">
+        <img src="luxury10.png" style="width:50px">
+        <h1>Eventos Corporativos</h1>
+    </div>
+</div>
+
+<div class="cart-icon-container">
+  <div class="cart-icon">
+  </div>
+</div>
+
+<footer>
+    <p>&copy; 2023 MatchPoint. Todos los derechos reservados.</p>
+</footer>
+<script>
+    const cartIconContainer = document.querySelector('.cart-icon-container');
+const luxury = document.getElementById('luxury');
+const urban = document.getElementById('urban');
+let isVisible = false;
+
+cartIconContainer.addEventListener('click', function () {
+    isVisible = !isVisible;
+    if (isVisible) {
+        luxury.style.display = 'block';
+        urban.style.display = 'block';
+    } else {
+        luxury.style.display = 'none';
+        urban.style.display = 'none';
+    }
+});
+
+</script>
+</body>
+</html>
