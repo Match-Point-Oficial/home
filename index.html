@@ -24,6 +24,31 @@ header {
     text-align: center;
 }
 
+        /* Estilo para el submenú */
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.parent-menu:hover .submenu {
+    display: block;
+}
+
+/* Estilo para los elementos del submenú */
+.submenu li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+}
+
+.submenu li:last-child {
+    border-bottom: none;
+}
+
+
 /* Barra de navegación */
 nav ul {
     display: flex;
@@ -232,18 +257,27 @@ nav ul li.logo img {
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-           <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Eventos</a></li>
-                <li><a href="#">Servicios</a></li>
-                <li class="logo"><img src="matchpoint.png"></li>
-                <li><a href="#">Sobre Nosotros</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+ <header>
+    <nav>
+        <ul>
+            <li><a href="#">Eventos</a></li>
+            <li><a href="#">Afterworks</a></li>
+            <li class="parent-menu">
+                <a href="#">Shooting</a>
+                <ul class="submenu">
+                    <li><a href="#">Teatro Magno</a></li>
+                    <li><a href="#">Fortuny</a></li>
+                    <li><a href="#">Pantera</a></li>
+                    <li><a href="#">Hotel Bless</a></li>
+                </ul>
+            </li>
+            <li class="logo"><img src="matchpoint.png"></li>
+            <li><a href="#">Cursos</a></li>
+            <li><a href="#">Servicios</a></li>
+        </ul>
+    </nav>
+</header>
+
 
     <section class="hero">
         <video autoplay loop muted playsinline>
