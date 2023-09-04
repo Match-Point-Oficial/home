@@ -149,11 +149,9 @@
             margin-bottom: 20px;
         }
 
-        .logos {
+       .logos {
             display: flex;
-            flex-wrap: wrap; /* Permitir que los logos se envuelvan a la siguiente línea */
-            justify-content: center;
-            align-items: center;
+            animation: scrollLogos 20s linear infinite; /* Animación de desplazamiento */
         }
 
         .logos img {
@@ -162,9 +160,13 @@
             margin: 10px;
         }
 
-        @media (max-width: 500px) {
-            nav ul li:not(.logo) {
-                display: none;
+        /* Animación de desplazamiento de los logos */
+        @keyframes scrollLogos {
+            0% {
+                transform: translateX(0); /* Comienza sin desplazamiento */
+            }
+            100% {
+                transform: translateX(-100%); /* Desplaza hacia la izquierda */
             }
         }
 
@@ -204,16 +206,17 @@
         </div>
     </section>
 <section class="patrocinadores">
-    <h2>Nuestros Patrocinadores</h2>
-    <div class="logos">
-        <img src="patrocinador1.png" alt="Patrocinador 1">
-        <img src="patrocinador1.png" alt="Patrocinador 2">
-        <img src="patrocinador1.png" alt="Patrocinador 3">
-        <img src="patrocinador1.png" alt="Patrocinador 4">
-        <img src="patrocinador1.png" alt="Patrocinador 5">
-        <img src="patrocinador1.png" alt="Patrocinador 6">
-    </div>
-</section>
+        <h2>Nuestros Patrocinadores</h2>
+        <div class="logos">
+            <!-- Repite tus imágenes de patrocinadores aquí -->
+            <img src="patrocinador1.png" alt="Patrocinador 1">
+            <img src="patrocinador1.png" alt="Patrocinador 2">
+            <img src="patrocinador1.png" alt="Patrocinador 3">
+            <img src="patrocinador1.png" alt="Patrocinador 4">
+            <img src="patrocinador1.png" alt="Patrocinador 5">
+            <img src="patrocinador1.png" alt="Patrocinador 6">
+        </div>
+    </section>
 
     <div class="cart-icon-container">
         <div class="cart-icon">
