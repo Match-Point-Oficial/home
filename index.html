@@ -139,26 +139,28 @@
         }
 
         .patrocinadores {
-    background-color: #f9f9f9;
-    padding: 20px;
-    text-align: center;
-}
+            background-color: #f9f9f9;
+            padding: 20px;
+            text-align: center;
+        }
 
-.patrocinadores h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
+        .patrocinadores h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
 
-.logos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        .logos {
+            display: flex;
+            flex-wrap: wrap; /* Permitir que los logos se envuelvan a la siguiente línea */
+            justify-content: center;
+            align-items: center;
+        }
 
-.logos img {
-    max-width: 150px;
-    margin: 10px;
-}
+        .logos img {
+            max-width: 100%; /* Hacer que las imágenes de los patrocinadores sean responsivas */
+            height: auto; /* Mantener la proporción de aspecto */
+            margin: 10px;
+        }
 
         @media (max-width: 500px) {
             nav ul li:not(.logo) {
