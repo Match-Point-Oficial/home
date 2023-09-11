@@ -242,6 +242,70 @@ button:focus {
     outline: none;
 }
 
+  .story-container {
+            display: flex;
+            justify-content: center; /* Centrar horizontalmente */
+            align-items: center; /* Centrar verticalmente */
+        }
+
+        .story-bubble {
+            width: 60px;
+            height: 60px;
+            margin: 0 5px;
+            background: linear-gradient(135deg, #feda75 0%, #fa7e1e 100%);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: moveGradient 3s linear infinite alternate;
+            position: relative; /* Para posicionar el texto encima */
+        }
+
+        .story-bubble p {
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+            padding: 0;
+            font-size: 10px;
+            text-align: center;
+            width: 100%;
+        }
+
+        @keyframes moveGradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .story-bubble img {
+            width: 48px;
+            height: 48px;
+            border-radius: 30px;
+        }
+
+        .expanded-story {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 3;
+        }
+
+        .expanded-story img {
+            max-width: 100%;
+            max-height: 100%;
+        }
 
 
     </style>
@@ -280,6 +344,29 @@ button:focus {
             <a href="#" class="cta-button">Explora Nuestros Eventos</a>
         </div>
     </section>
+ <div class="historias">
+         <h3>Últimas Stories</h3>
+    <div class="story-container">
+        <div class="story-bubble" data-image="reviewsall.png">
+            <img src="reviewsall.png">
+        </div>
+        <div class="story-bubble" data-image="reviewsall2.png">
+            <img src="reviewsall2.png">
+        </div>
+        <div class="story-bubble" data-image="reviewsall3.png">
+            <img src="reviewsall3.png">
+        </div>
+        <div class="story-bubble" data-image="reviewsall4.png">
+            <img src="reviewsall4.png">
+        </div>
+    </div>
+
+</div>
+    <div class="expanded-story">
+        <img src="app.png">
+    </div>
+
+
  <section class="proximos-eventos">
         <div class="eventos-container">
             <div class="evento">
