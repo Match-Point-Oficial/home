@@ -475,7 +475,7 @@ button:focus {
     </footer>
     <script>
 
-         const storyBubbles = document.querySelectorAll(".story-bubble");
+        const storyBubbles = document.querySelectorAll(".story-bubble");
 const expandedStory = document.querySelector(".expanded-story");
 const expandedImg = expandedStory.querySelector("img");
 const closeButton = document.getElementById("close-button");
@@ -488,13 +488,19 @@ storyBubbles.forEach((bubble) => {
         expandedImg.src = bubble.dataset.image;
         expandedStory.style.display = "flex";
         storyProgress.value = 0; // Reinicia el progreso de la historia
+        const duration = 5000; // Duración en milisegundos (5 segundos)
+        const interval = 50; // Intervalo de actualización
+        const steps = duration / interval; // Cantidad de pasos
+        let step = 0;
+
         storyInterval = setInterval(() => {
-            storyProgress.value += 1; // Incrementa el progreso cada segundo
+            storyProgress.value = (step / steps) * 100;
+            step++;
             if (storyProgress.value >= 100) {
-                clearInterval(storyInterval); // Detiene la historia al alcanzar el 100%
+                clearInterval(storyInterval); // Detiene la historia al alcanzar la duración
                 expandedStory.style.display = "none"; // Oculta la expansión
             }
-        }, 1000); // Actualiza cada 50 ms (ajusta esto según la duración de tu historia)
+        }, interval);
     });
 });
 
@@ -502,6 +508,7 @@ closeButton.addEventListener("click", () => {
     clearInterval(storyInterval); // Detiene la historia al hacer clic en la "x"
     expandedStory.style.display = "none"; // Oculta la expansión
 });
+
 
         
      document.addEventListener("DOMContentLoaded", function () {
