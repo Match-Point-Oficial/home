@@ -318,20 +318,36 @@ button:focus {
     margin-bottom: 10px;
 }
 
+/* Estilos para el input range */
 #story-progress {
-    width: 80%;
-    margin-bottom: 10px;
+    appearance: none; /* Oculta los estilos nativos del navegador */
+    width: 100%;
+    height: 10px;
+    background: transparent;
+    outline: none;
 }
 
-#close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    color: white;
-    background: black;
-    border-radius: 50%;
-    padding: 5px;
+#story-progress::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 2px; /* Altura de la barra de progreso */
+    background: linear-gradient(90deg, #feda75 0%, #fa7e1e 100%);
+    border-radius: 2px;
     cursor: pointer;
+}
+
+#story-progress::-webkit-slider-thumb {
+    width: 20px; /* Ancho del indicador de progreso */
+    height: 20px; /* Altura del indicador de progreso */
+    background: #feda75;
+    border: 2px solid #fa7e1e;
+    border-radius: 50%;
+    cursor: pointer;
+    appearance: none; /* Oculta los estilos nativos del navegador */
+    transition: transform 0.2s; /* Efecto de escala al interactuar */
+}
+
+#story-progress:focus::-webkit-slider-thumb {
+    transform: scale(1.2); /* Efecto de escala al enfocar */
 }
 
 
