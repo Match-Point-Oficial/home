@@ -296,23 +296,43 @@ button:focus {
             border-radius: 30px;
         }
 
-        .expanded-story {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: black;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 3;
-        }
+       /* Estilos para la expansión de la historia */
+.expanded-story {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; /* Para centrar el contenido verticalmente */
+    z-index: 3;
+    overflow: hidden;
+}
 
-        .expanded-story img {
-            max-width: 100%;
-            max-height: 100%;
-        }
+.expanded-story img {
+    max-width: 100%;
+    max-height: 80%; /* Limita la altura para mantener la proporción */
+    margin-bottom: 10px;
+}
+
+#story-progress {
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+#close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    background: black;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+}
 
 
     </style>
@@ -369,9 +389,11 @@ button:focus {
     </div>
 
 </div>
-    <div class="expanded-story">
-        <img src="app.png">
-    </div>
+   <div class="expanded-story">
+    <input type="range" id="story-progress" min="0" max="100" step="1">
+    <span id="close-button">x</span>
+    <img src="app.png">
+</div>
 
 
  <section class="proximos-eventos">
@@ -437,20 +459,33 @@ button:focus {
     </footer>
     <script>
 
-           const storyBubbles = document.querySelectorAll(".story-bubble");
-        const expandedStory = document.querySelector(".expanded-story");
-        const expandedImg = expandedStory.querySelector("img");
-       
+         const storyBubbles = document.querySelectorAll(".story-bubble");
+const expandedStory = document.querySelector(".expanded-story");
+const expandedImg = expandedStory.querySelector("img");
+const closeButton = document.getElementById("close-button");
+const storyProgress = document.getElementById("story-progress");
 
-        storyBubbles.forEach((bubble) => {
-            bubble.addEventListener("click", () => {
-                expandedImg.src = bubble.dataset.image;
-                expandedStory.style.display = "flex";
-                setTimeout(() => {
-                    expandedStory.style.display = "none";
-                }, 5000);
-            });
-        });
+let storyInterval;
+
+storyBubbles.forEach((bubble) => {
+    bubble.addEventListener("click", () => {
+        expandedImg.src = bubble.dataset.image;
+        expandedStory.style.display = "flex";
+        storyProgress.value = 0; // Reinicia el progreso de la historia
+        storyInterval = setInterval(() => {
+            storyProgress.value += 1; // Incrementa el progreso cada segundo
+            if (storyProgress.value >= 100) {
+                clearInterval(storyInterval); // Detiene la historia al alcanzar el 100%
+                expandedStory.style.display = "none"; // Oculta la expansión
+            }
+        }, 50); // Actualiza cada 50 ms (ajusta esto según la duración de tu historia)
+    });
+});
+
+closeButton.addEventListener("click", () => {
+    clearInterval(storyInterval); // Detiene la historia al hacer clic en la "x"
+    expandedStory.style.display = "none"; // Oculta la expansión
+});
 
         
      document.addEventListener("DOMContentLoaded", function () {
