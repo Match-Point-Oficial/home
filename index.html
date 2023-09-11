@@ -177,6 +177,40 @@
             }
         }
 
+
+/* Estilos para la sección de próximos eventos */
+.proximos-eventos {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+/* Estilos para los eventos individuales */
+.evento {
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    text-align: center;
+    width: 250px;
+    margin: 10px;
+}
+
+.evento img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.evento h3 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.evento p {
+    font-size: 1rem;
+    margin: 5px 0;
+}
+
+
     </style>
 </head>
 <body>
@@ -212,6 +246,46 @@
             <a href="#" class="cta-button">Explora Nuestros Eventos</a>
         </div>
     </section>
+<section class="proximos-eventos">
+        <div class="evento">
+            <img src="imagen1.jpg" alt="Evento 1">
+            <h3>Evento 1</h3>
+            <p>Descripción del Evento 1.</p>
+            <p>Fecha: 10 de octubre de 2023</p>
+        </div>
+        <div class="evento">
+            <img src="imagen2.jpg" alt="Evento 2">
+            <h3>Evento 2</h3>
+            <p>Descripción del Evento 2.</p>
+            <p>Fecha: 15 de noviembre de 2023</p>
+        </div>
+        <div class="evento">
+            <img src="imagen2.jpg" alt="Evento 2">
+            <h3>Evento 2</h3>
+            <p>Descripción del Evento 2.</p>
+            <p>Fecha: 15 de noviembre de 2023</p>
+        </div>
+         <div class="evento">
+            <img src="imagen2.jpg" alt="Evento 2">
+            <h3>Evento 2</h3>
+            <p>Descripción del Evento 2.</p>
+            <p>Fecha: 15 de noviembre de 2023</p>
+        </div>
+         <div class="evento">
+            <img src="imagen2.jpg" alt="Evento 2">
+            <h3>Evento 2</h3>
+            <p>Descripción del Evento 2.</p>
+            <p>Fecha: 15 de noviembre de 2023</p>
+        </div>
+
+         <div class="evento">
+            <img src="imagen2.jpg" alt="Evento 2">
+            <h3>Evento 2</h3>
+            <p>Descripción del Evento 2.</p>
+            <p>Fecha: 15 de noviembre de 2023</p>
+        </div>
+    </section>
+
 <section class="patrocinadores">
         <h2>Nuestros Patrocinadores</h2>
         <div class="logos">
@@ -225,30 +299,11 @@
         </div>
     </section>
 
-    <div class="cart-icon-container">
-        <div class="cart-icon">
-        </div>
-    </div>
-
     <footer>
         <p>&copy; 2023 MatchPoint. Todos los derechos reservados.</p>
     </footer>
     <script>
-        const cartIconContainer = document.querySelector('.cart-icon-container');
-        const luxury = document.getElementById('luxury');
-        const urban = document.getElementById('urban');
-        let isVisible = false;
-
-        cartIconContainer.addEventListener('click', function () {
-            isVisible = !isVisible;
-            if (isVisible) {
-                luxury.style.display = 'block';
-                urban.style.display = 'block';
-            } else {
-                luxury.style.display = 'none';
-                urban.style.display = 'none';
-            }
-        });
+     
     </script>
 </body>
 </html>
