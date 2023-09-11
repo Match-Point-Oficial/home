@@ -181,8 +181,15 @@
 /* Estilos para la sección de próximos eventos */
 .proximos-eventos {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
     margin: 20px;
+}
+
+/* Estilos para el contenedor de eventos */
+.eventos-container {
+    display: flex;
+    overflow: hidden;
 }
 
 /* Estilos para los eventos individuales */
@@ -209,6 +216,31 @@
     font-size: 1rem;
     margin: 5px 0;
 }
+
+/* Estilos para los controles */
+.controles {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:focus {
+    outline: none;
+}
+
 
 
     </style>
@@ -246,43 +278,48 @@
             <a href="#" class="cta-button">Explora Nuestros Eventos</a>
         </div>
     </section>
-<section class="proximos-eventos">
+ <section class="proximos-eventos">
+        <div class="eventos-container">
+            <div class="evento">
+                <img src="imagen1.jpg" alt="Evento 1">
+                <h3>Evento 1</h3>
+                <p>Descripción del Evento 1.</p>
+                <p>Fecha: 10 de octubre de 2023</p>
+            </div>
+            <div class="evento">
+                <img src="imagen1.jpg" alt="Evento 1">
+                <h3>Evento 1</h3>
+                <p>Descripción del Evento 1.</p>
+                <p>Fecha: 10 de octubre de 2023</p>
+            </div>
+            <div class="evento">
+                <img src="imagen1.jpg" alt="Evento 1">
+                <h3>Evento 1</h3>
+                <p>Descripción del Evento 1.</p>
+                <p>Fecha: 10 de octubre de 2023</p>
+            </div>
+    <div class="evento">
+                <img src="imagen1.jpg" alt="Evento 1">
+                <h3>Evento 1</h3>
+                <p>Descripción del Evento 1.</p>
+                <p>Fecha: 10 de octubre de 2023</p>
+            </div>
         <div class="evento">
-            <img src="imagen1.jpg" alt="Evento 1">
-            <h3>Evento 1</h3>
-            <p>Descripción del Evento 1.</p>
-            <p>Fecha: 10 de octubre de 2023</p>
+                <img src="imagen1.jpg" alt="Evento 1">
+                <h3>Evento 1</h3>
+                <p>Descripción del Evento 1.</p>
+                <p>Fecha: 10 de octubre de 2023</p>
+            </div>
+            <div class="evento">
+                <img src="imagen1.jpg" alt="Evento 1">
+                <h3>Evento 1</h3>
+                <p>Descripción del Evento 1.</p>
+                <p>Fecha: 10 de octubre de 2023</p>
+            </div>
         </div>
-        <div class="evento">
-            <img src="imagen2.jpg" alt="Evento 2">
-            <h3>Evento 2</h3>
-            <p>Descripción del Evento 2.</p>
-            <p>Fecha: 15 de noviembre de 2023</p>
-        </div>
-        <div class="evento">
-            <img src="imagen2.jpg" alt="Evento 2">
-            <h3>Evento 2</h3>
-            <p>Descripción del Evento 2.</p>
-            <p>Fecha: 15 de noviembre de 2023</p>
-        </div>
-         <div class="evento">
-            <img src="imagen2.jpg" alt="Evento 2">
-            <h3>Evento 2</h3>
-            <p>Descripción del Evento 2.</p>
-            <p>Fecha: 15 de noviembre de 2023</p>
-        </div>
-         <div class="evento">
-            <img src="imagen2.jpg" alt="Evento 2">
-            <h3>Evento 2</h3>
-            <p>Descripción del Evento 2.</p>
-            <p>Fecha: 15 de noviembre de 2023</p>
-        </div>
-
-         <div class="evento">
-            <img src="imagen2.jpg" alt="Evento 2">
-            <h3>Evento 2</h3>
-            <p>Descripción del Evento 2.</p>
-            <p>Fecha: 15 de noviembre de 2023</p>
+        <div class="controles">
+            <button id="anterior">Anterior</button>
+            <button id="siguiente">Siguiente</button>
         </div>
     </section>
 
@@ -303,7 +340,47 @@
         <p>&copy; 2023 MatchPoint. Todos los derechos reservados.</p>
     </footer>
     <script>
-     
+     document.addEventListener("DOMContentLoaded", function () {
+    const eventosContainer = document.querySelector(".eventos-container");
+    const eventos = document.querySelectorAll(".evento");
+    const anteriorButton = document.getElementById("anterior");
+    const siguienteButton = document.getElementById("siguiente");
+
+    let currentIndex = 0;
+    const eventosPorPagina = window.innerWidth < 768 ? 1 : 3;
+
+    function mostrarEventos() {
+        eventos.forEach((evento, index) => {
+            if (index >= currentIndex && index < currentIndex + eventosPorPagina) {
+                evento.style.display = "block";
+            } else {
+                evento.style.display = "none";
+            }
+        });
+    }
+
+    function avanzar() {
+        currentIndex += eventosPorPagina;
+        if (currentIndex >= eventos.length) {
+            currentIndex = 0;
+        }
+        mostrarEventos();
+    }
+
+    function retroceder() {
+        currentIndex -= eventosPorPagina;
+        if (currentIndex < 0) {
+            currentIndex = eventos.length - eventosPorPagina;
+        }
+        mostrarEventos();
+    }
+
+    mostrarEventos();
+
+    anteriorButton.addEventListener("click", retroceder);
+    siguienteButton.addEventListener("click", avanzar);
+});
+
     </script>
 </body>
 </html>
