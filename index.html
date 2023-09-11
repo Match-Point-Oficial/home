@@ -347,17 +347,17 @@ button:focus {
  <div class="historias">
          <h3>Últimas Stories</h3>
     <div class="story-container">
-        <div class="story-bubble" data-image="reviewsall.png">
-            <img src="reviewsall.png">
+        <div class="story-bubble" data-image="event.png">
+            <img src="event.png">
         </div>
-        <div class="story-bubble" data-image="reviewsall2.png">
-            <img src="reviewsall2.png">
+        <div class="story-bubble" data-image="event2.png">
+            <img src="event2.png">
         </div>
-        <div class="story-bubble" data-image="reviewsall3.png">
-            <img src="reviewsall3.png">
+        <div class="story-bubble" data-image="event3.png">
+            <img src="event3.png">
         </div>
-        <div class="story-bubble" data-image="reviewsall4.png">
-            <img src="reviewsall4.png">
+        <div class="story-bubble" data-image="event4.png">
+            <img src="event4.png">
         </div>
     </div>
 
@@ -429,6 +429,23 @@ button:focus {
         <p>&copy; 2023 MatchPoint. Todos los derechos reservados.</p>
     </footer>
     <script>
+
+           const storyBubbles = document.querySelectorAll(".story-bubble");
+        const expandedStory = document.querySelector(".expanded-story");
+        const expandedImg = expandedStory.querySelector("img");
+       
+
+        storyBubbles.forEach((bubble) => {
+            bubble.addEventListener("click", () => {
+                expandedImg.src = bubble.dataset.image;
+                expandedStory.style.display = "flex";
+                setTimeout(() => {
+                    expandedStory.style.display = "none";
+                }, 5000);
+            });
+        });
+
+        
      document.addEventListener("DOMContentLoaded", function () {
     const eventosContainer = document.querySelector(".eventos-container");
     const eventos = document.querySelectorAll(".evento");
