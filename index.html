@@ -385,6 +385,24 @@ button:focus {
     color: #666;
     line-height: 1.5;
 }
+/* Estilos iniciales para la sección de scroll */
+.scroll-section {
+    background-image: url('wall2.png');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+    transition: background-size 0.3s, padding 0.3s;
+}
+
+.scroll-content {
+    transition: transform 0.3s, font-size 0.3s;
+}
+
+.scroll-content h1 {
+    font-size: 36px;
+}
 
 
     </style>
@@ -499,6 +517,11 @@ button:focus {
             <button id="siguiente">Siguiente</button>
         </div>
     </section>
+<section class="scroll-section">
+    <div class="scroll-content">
+        <h1>Nuestros Valores</h1>
+    </div>
+</section>
 
 <section class="patrocinadores">
         <h2>Nuestros Patrocinadores</h2>
@@ -594,6 +617,29 @@ closeButton.addEventListener("click", () => {
     anteriorButton.addEventListener("click", retroceder);
     siguienteButton.addEventListener("click", avanzar);
 });
+
+    const scrollSection = document.querySelector(".scroll-section");
+const scrollContent = document.querySelector(".scroll-content");
+const h1 = scrollContent.querySelector("h1");
+
+let isScrollingUp = false;
+
+window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+    
+    if (scrollY > 0 && !isScrollingUp) {
+        scrollSection.style.backgroundSize = "120%";
+        scrollSection.style.padding = "50px 0";
+        h1.style.fontSize = "42px";
+        isScrollingUp = true;
+    } else if (scrollY === 0 && isScrollingUp) {
+        scrollSection.style.backgroundSize = "cover";
+        scrollSection.style.padding = "100px 0";
+        h1.style.fontSize = "36px";
+        isScrollingUp = false;
+    }
+});
+
 
     </script>
 </body>
