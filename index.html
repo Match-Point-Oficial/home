@@ -647,12 +647,12 @@ const rightImage = document.querySelector(".right-image");
 window.addEventListener("scroll", () => {
     const scrollY = window.scrollY;
 
-    // Calcula el valor de translateX basado en el desplazamiento vertical
-    const translateX = `${scrollY}px`;
+    // Calcula el valor de translateX proporcional al desplazamiento vertical
+    const translateX = `${scrollY * 0.5}px`;
 
     // Aplica el valor de translateX a las imágenes izquierda y derecha
-    leftImage.style.transform = `translateX(calc(1px+ ${translateX}))`;
-    rightImage.style.transform = `translateX(calc(1px - ${translateX}))`;
+    leftImage.style.transform = `translateX(${translateX})`;
+    rightImage.style.transform = `translateX(${translateX})`;
 });
 
 
