@@ -640,6 +640,20 @@ closeButton.addEventListener("click", () => {
     siguienteButton.addEventListener("click", avanzar);
 });
 
+const scrollingSection = document.querySelector(".scrolling-section");
+const leftImage = document.querySelector(".left-image");
+const rightImage = document.querySelector(".right-image");
+
+window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+
+    // Calcula el valor de translateX basado en el desplazamiento vertical
+    const translateX = `${scrollY}px`;
+
+    // Aplica el valor de translateX a las imágenes izquierda y derecha
+    leftImage.style.transform = `translateX(-${translateX})`;
+    rightImage.style.transform = `translateX(${translateX})`;
+});
 
 
     </script>
