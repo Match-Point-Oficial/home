@@ -385,23 +385,39 @@ button:focus {
     color: #666;
     line-height: 1.5;
 }
-/* Estilos iniciales para la sección de scroll */
-.scroll-section {
-    background-image: url('wall2.png');
-    background-size: cover;
-    background-position: center;
-    color: #fff;
+
+/* Estilos para la sección de scroll */
+.scrolling-section {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 50px 0;
+    background-color: #f9f9f9;
+}
+
+/* Estilos para la imagen izquierda y derecha */
+.left-image,
+.right-image {
+    flex: 0 0 50%; /* Toma el 50% del espacio disponible en la sección */
+    transition: transform 0.3s; /* Agrega una transición suave */
+    overflow: hidden;
+}
+
+.left-image img,
+.right-image img {
+    max-width: 100%; /* Asegura que la imagen se ajuste al contenedor */
+    height: auto;
+}
+
+/* Estilos para el contenido central */
+.center-content {
+    flex: 1; /* Toma el espacio restante */
     text-align: center;
-    padding: 100px 0;
-    transition: background-size 0.3s, padding 0.3s;
 }
 
-.scroll-content {
-    transition: transform 0.3s, font-size 0.3s;
-}
-
-.scroll-content h1 {
-    font-size: 36px;
+.center-content h2 {
+    font-size: 24px;
+    margin: 0;
 }
 
 
@@ -517,9 +533,15 @@ button:focus {
             <button id="siguiente">Siguiente</button>
         </div>
     </section>
-<section class="scroll-section">
-    <div class="scroll-content">
-        <h1>Nuestros Valores</h1>
+<section class="scrolling-section">
+    <div class="left-image">
+        <img src="cicle.png" alt="Imagen Izquierda">
+    </div>
+    <div class="center-content">
+        <h2>Título del Texto</h2>
+    </div>
+    <div class="right-image">
+        <img src="cicle.png" alt="Imagen Derecha">
     </div>
 </section>
 
@@ -618,26 +640,19 @@ closeButton.addEventListener("click", () => {
     siguienteButton.addEventListener("click", avanzar);
 });
 
-    const scrollSection = document.querySelector(".scroll-section");
-const scrollContent = document.querySelector(".scroll-content");
-const h1 = scrollContent.querySelector("h1");
-
-let isScrollingUp = false;
+const scrollingSection = document.querySelector(".scrolling-section");
+const leftImage = document.querySelector(".left-image");
+const rightImage = document.querySelector(".right-image");
 
 window.addEventListener("scroll", () => {
     const scrollY = window.scrollY;
-    
-    if (scrollY > 0 && !isScrollingUp) {
-        scrollSection.style.backgroundSize = "120%";
-        scrollSection.style.padding = "50px 0";
-        h1.style.fontSize = "42px";
-        isScrollingUp = true;
-    } else if (scrollY === 0 && isScrollingUp) {
-        scrollSection.style.backgroundSize = "cover";
-        scrollSection.style.padding = "100px 0";
-        h1.style.fontSize = "36px";
-        isScrollingUp = false;
-    }
+
+    // Calcula el valor de translateX basado en el desplazamiento vertical
+    const translateX = `${scrollY}px`;
+
+    // Aplica el valor de translateX a las imágenes izquierda y derecha
+    leftImage.style.transform = `translateX(-${translateX})`;
+    rightImage.style.transform = `translateX(${translateX})`;
 });
 
 
