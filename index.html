@@ -452,7 +452,7 @@ button:focus {
 
 
 
-      /* Estilos para la nueva sección futurista */
+     /* Estilos para la nueva sección futurista */
     .mi-seccion-futurista {
       background: linear-gradient(90deg, #ff00f7, #00ffea);
       color: #fff;
@@ -700,21 +700,21 @@ closeButton.addEventListener("click", () => {
 
 
  // JavaScript para mostrar los elementos al desplazarse
+    // JavaScript para mostrar los elementos al desplazarse
     document.addEventListener("DOMContentLoaded", function () {
       const elements = document.querySelectorAll(".in-view");
-      elements.forEach((element) => {
-        const observer = new IntersectionObserver((entries, observer) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("in-view");
-              observer.unobserve(entry.target);
-            }
-          });
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+          }
         });
+      });
+
+      elements.forEach((element) => {
         observer.observe(element);
       });
     });
-        
 
     </script>
 </body>
