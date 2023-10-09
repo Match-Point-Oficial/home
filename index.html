@@ -449,6 +449,31 @@ button:focus {
         transform: scale(1);
       }
     }
+
+
+
+      /* Estilos para la nueva sección futurista */
+    .mi-seccion-futurista {
+      background: linear-gradient(90deg, #ff00f7, #00ffea);
+      color: #fff;
+      padding: 100px;
+      text-align: center;
+    }
+
+    /* Estilos para ocultar los elementos inicialmente */
+    .mi-seccion-futurista h1,
+    .mi-seccion-futurista p {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    /* Estilos para mostrar los elementos al desplazarse */
+    .mi-seccion-futurista.in-view h1,
+    .mi-seccion-futurista.in-view p {
+      opacity: 1;
+      transform: translateY(0);
+    }
     </style>
 </head>
 <body>
@@ -564,7 +589,20 @@ button:focus {
 <section class="fondo-futurista">
     <h1>DESCUBRE MATCHPOINT</h1>
   </section>
-    
+      <section class="mi-seccion-futurista">
+    <div class="in-view">
+      <h1>Nuestra Historia creando Experiencias</h1>
+      <p></p>
+    </div>
+    <div class="in-view">
+      <h1>Nuestras Propuestas de Moda</h1>
+      <p>Hablamos de los desfiles en Discotecas de prestigio en Madrid como Fitz y Teatro Magno.</p>
+    </div>
+    <div class="in-view">
+      <h1>Nuestros Servicios</h1>
+      <p>Hablamos de fotografía, vídeo, marketing digital, publicidad online y organización de eventos.</p>
+    </div>
+  </section>
 <section class="patrocinadores">
         <h2>Nuestros Patrocinadores</h2>
         <div class="logos">
@@ -661,7 +699,21 @@ closeButton.addEventListener("click", () => {
 });
 
 
-
+ // JavaScript para mostrar los elementos al desplazarse
+    document.addEventListener("DOMContentLoaded", function () {
+      const elements = document.querySelectorAll(".in-view");
+      elements.forEach((element) => {
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+              observer.unobserve(entry.target);
+            }
+          });
+        });
+        observer.observe(element);
+      });
+    });
         
 
     </script>
