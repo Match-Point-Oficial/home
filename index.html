@@ -420,7 +420,35 @@ button:focus {
     margin: 0;
 }
 
+/* Estilos para la sección */
+    .fondo-futurista {
+      background: linear-gradient(45deg, #00ffea, #ff00f7);
+      padding: 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
 
+    /* Estilos para el título h1 */
+    h1 {
+      font-size: 4em;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255, 0, 247, 0.8);
+      animation: heartbeat 2s infinite;
+    }
+
+    /* Animación de latido de corazón */
+    @keyframes heartbeat {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
     </style>
 </head>
 <body>
@@ -487,7 +515,9 @@ button:focus {
     <span id="close-button">x</span>
     <img src="app.png">
 </div>
-
+<section class="fondo-futurista">
+    <h1>DESCUBRE MATCHPOINT</h1>
+  </section>
 
  <section class="proximos-eventos">
         <div class="eventos-container">
@@ -533,17 +563,6 @@ button:focus {
             <button id="siguiente">Siguiente</button>
         </div>
     </section>
-<section class="scrolling-section">
-    <div class="left-image">
-        <img src="circle2.png" alt="Imagen Izquierda">
-    </div>
-    <div class="center-content">
-        <h2>Transciende</h2>
-    </div>
-    <div class="right-image">
-        <img src="circle2.png" alt="Imagen Derecha">
-    </div>
-</section>
 
 <section class="patrocinadores">
         <h2>Nuestros Patrocinadores</h2>
@@ -640,23 +659,7 @@ closeButton.addEventListener("click", () => {
     siguienteButton.addEventListener("click", avanzar);
 });
 
-const scrollingSection = document.querySelector(".scrolling-section");
-const leftImage = document.querySelector(".left-image");
-const rightImage = document.querySelector(".right-image");
 
-window.addEventListener("scroll", () => {
-    const scrollY = window.scrollY;
-
-    // Calcula el valor de translateX para la imagen izquierda
-    const translateXLeft = `${scrollY * 0.5}px`;
-
-    // Calcula el valor de translateX para la imagen derecha con píxeles negativos
-    const translateXRight = `${-scrollY * 0.5}px`;
-
-    // Aplica los valores de translateX a las imágenes izquierda y derecha
-    leftImage.style.transform = `translateX(${translateXLeft})`;
-    rightImage.style.transform = `translateX(${translateXRight})`;
-});
 
         
 
